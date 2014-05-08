@@ -16,7 +16,11 @@ exports.post = function(req, res) {
 
   req.on('end', function(){
     req.data = qs.parse(data).url;
-    checkForExisting(req, res);
+    if (typeof req.data !== 'string') {
+      serve(res, 500);
+    } else {
+      checkForExisting(req, res);
+    }
   });
 
 };
@@ -29,7 +33,7 @@ var checkForExisting = function(req, res){
       if ( data.toString().indexOf(req.data + '\n') === -1 ){
         updateArchive(req, res);
       } else {
-        serve(res, 302, path.join('/', req.data));
+        serve(res, 302, undefined, undefined, path.join('/', req.data));
       }
     }
   });
@@ -41,7 +45,7 @@ var updateArchive = function(req, res){
     if (err){
       serve(res, 500);
     } else {
-      serve(res, 302, path.join('/', req.data))
+      serve(res, 302, undefined, undefined, path.join('/', req.data));
     }
   });
 };

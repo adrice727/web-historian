@@ -51,7 +51,7 @@ var checkList = function(req, res){
         req.pathname = req.pathname.substr(1);
       }
       if ( data.toString().indexOf(req.pathname + '\n') !== -1 ){
-        serve(res, 302, '/loading.html');
+        serve(res, 302, undefined, undefined, '/loading.html');
       } else {
         serve(res, 404);
       }

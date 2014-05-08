@@ -85,7 +85,7 @@ describe("Node Server Request Listener Function", function() {
 
 });
 
-xdescribe("html fetcher helpers", function(){
+describe("html fetcher helpers", function(){
 
   it("should have a 'readListOfUrls' function", function(done){
     var urlArray = ["example1.com", "example2.com"];
@@ -104,8 +104,8 @@ xdescribe("html fetcher helpers", function(){
     });
   });
 
-  it("should have a 'downloadUrls' function", function(){
-    expect(typeof archive.downloadUrls).to.equal('function');
+  it("should have a 'downloadUrl' function", function(){
+    expect(typeof archive.downloadUrl).to.equal('function');
   });
 
 });

@@ -4,7 +4,9 @@
   "main": "web/basic-server.js",
   "author": "Hack Reactor",
   "license": "Copyright 2013, Hack Reactor. All rights reserved.",
-  "dependencies": {},
+  "dependencies": {
+    "http-request": "^0.6.2"
+  },
   "devDependencies": {
     "request": "^2.34.0",
     "chai": "^1.9.0",
